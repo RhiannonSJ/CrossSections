@@ -39,11 +39,9 @@
 // -------------------------------------------------------------------------
 
 void Smear ( TTree   *tree,
-             TNtuple *info_s,
-             TNtuple *info_bg,
+             TNtuple *info,
              TH2D    *h_unsmeared, 
-             TH2D    *h_smeared, 
-             TH2D    *h_cut ); 
+             TH2D    *h_smeared ); 
 
 // -------------------------------------------------------------------------
 // Characterisation function:
@@ -52,17 +50,5 @@ void Smear ( TTree   *tree,
 // -------------------------------------------------------------------------
 
 void Characterisation ( TH2D    *h_smeared,
-                        TNtuple *info_s,
-                        TNtuple *info_bg ); 
-
-// -------------------------------------------------------------------------
-// Efficieny function:
-// Loop over x and y bins and calculate the efficiencies and purities on a 
-// bin-by-bin basis and plot a 2D efficiency graph and a 2D purity graph
-// -------------------------------------------------------------------------
-
-void Efficiency ( TH2D    *h_smeared, 
-                  TH2D    *h_unsmeared, 
-                  TH2D    *h_cut,
-                  TNtuple *info_s ); 
+                        TNtuple *info ); 
 
