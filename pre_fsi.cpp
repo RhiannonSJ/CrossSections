@@ -29,7 +29,7 @@ int pre_fsi() {
        exit(-1);
     }
     else{
-        cout << " Default event file is open " << endl;
+        cout << " Default+MEC event file is open " << endl;
     }
 
     // -------------------------------------------------------------------------
@@ -395,14 +395,14 @@ void Characterisation ( TH2D *h_smeared, TNtuple *info ){
     signal_h.push_back(h_Tmu_mubarcc);
     signal_h.push_back(h_Tmu_mubarnc);
 
-    // leg_T->AddEntry( h_Tmu_sm, " Total signal ", "f" );
-    leg_T->AddEntry( h_Tmu_muccqe,     " #nu_{#mu} CCQE ", "f" );
-    leg_T->AddEntry( h_Tmu_muccmec,    " #nu_{#mu} CCMEC ", "f" );
-    leg_T->AddEntry( h_Tmu_muccres1pi, " #nu_{#mu} CCRES ", "f" );
-    leg_T->AddEntry( h_Tmu_mucc1pi,    " #nu_{#mu} CC non-RES 1#pi ", "f" );
     leg_T->AddEntry( h_Tmu_muccother,  " #nu_{#mu} CCOther ", "f" );
-    leg_T->AddEntry( h_Tmu_mubarcc,    " #bar{ #nu_{#mu} } CC ", "f" );
-    leg_T->AddEntry( h_Tmu_mubarnc,    " #bar{ #nu_{#mu} } NC ", "f" );
+    leg_T->AddEntry( h_Tmu_mucc1pi,    " #nu_{#mu} CC non-RES 1#pi ", "f" );
+    leg_T->AddEntry( h_Tmu_muccres1pi, " #nu_{#mu} CCRES ", "f" );
+    leg_T->AddEntry( h_Tmu_muccmec,    " #nu_{#mu} CCMEC ", "f" );
+    leg_T->AddEntry( h_Tmu_muccqe,     " #nu_{#mu} CCQE ", "f" );
+    
+    //leg_T->AddEntry( h_Tmu_mubarcc,    " #bar{ #nu_{#mu} } CC ", "f" );
+    //leg_T->AddEntry( h_Tmu_mubarnc,    " #bar{ #nu_{#mu} } NC ", "f" );
    
     for ( int i = 1; i <= y_bins; ++i ){
 
@@ -535,11 +535,11 @@ void Characterisation ( TH2D *h_smeared, TNtuple *info ){
 
         double norm_Tmu = 0;
        
-        for ( unsigned int i = 0; i < signal_h.size(); ++i ){
+        for ( unsigned int i = 0; i < signal_h.size() - 2; ++i ){
             norm_Tmu += signal_h[i]->Integral();
         }
 
-        for ( unsigned int i = 0; i < signal_h.size(); ++i ){
+        for ( unsigned int i = 0; i < signal_h.size() - 2; ++i ){
 
             signal_h[i]->SetFillColor(pal[i]);
             signal_h[i]->SetLineColor(pal[i]);
@@ -598,14 +598,14 @@ void Characterisation ( TH2D *h_smeared, TNtuple *info ){
     signal_c_h.push_back(h_cosmu_mubarcc);
     signal_c_h.push_back(h_cosmu_mubarnc);
 
-    // leg_cos->AddEntry( h_cosmu_sm, " Total signal ", "f" );
-    leg_cos->AddEntry( h_cosmu_muccqe,     " #nu_{#mu} CCQE ", "f" );
-    leg_cos->AddEntry( h_cosmu_muccmec,    " #nu_{#mu} CCMEC ", "f" );
-    leg_cos->AddEntry( h_cosmu_muccres1pi, " #nu_{#mu} CCRES ", "f" );
-    leg_cos->AddEntry( h_cosmu_mucc1pi,    " #nu_{#mu} CC non-RES 1#pi ", "f" );
     leg_cos->AddEntry( h_cosmu_muccother,  " #nu_{#mu} CCOther ", "f" );
-    leg_cos->AddEntry( h_cosmu_mubarcc,    " #bar{ #nu_{#mu} } CC ", "f" );
-    leg_cos->AddEntry( h_cosmu_mubarnc,    " #bar{ #nu_{#mu} } NC ", "f" );
+    leg_cos->AddEntry( h_cosmu_mucc1pi,    " #nu_{#mu} CC non-RES 1#pi ", "f" );
+    leg_cos->AddEntry( h_cosmu_muccres1pi, " #nu_{#mu} CCRES ", "f" );
+    leg_cos->AddEntry( h_cosmu_muccmec,    " #nu_{#mu} CCMEC ", "f" );
+    leg_cos->AddEntry( h_cosmu_muccqe,     " #nu_{#mu} CCQE ", "f" );
+    
+    //leg_cos->AddEntry( h_cosmu_mubarcc,    " #bar{ #nu_{#mu} } CC ", "f" );
+    //leg_cos->AddEntry( h_cosmu_mubarnc,    " #bar{ #nu_{#mu} } NC ", "f" );
    
     for ( int i = 1; i <= x_bins; ++i ){
 
@@ -739,11 +739,11 @@ void Characterisation ( TH2D *h_smeared, TNtuple *info ){
 
         double norm_cosmu = 0;
        
-        for ( unsigned int i = 0; i < signal_c_h.size(); ++i ){
+        for ( unsigned int i = 0; i < signal_c_h.size() - 2; ++i ){
             norm_cosmu += signal_c_h[i]->Integral();
         }
         
-        for ( unsigned int i = 0; i < signal_c_h.size(); ++i ){
+        for ( unsigned int i = 0; i < signal_c_h.size() - 2; ++i ){
 
             signal_c_h[i]->SetFillColor(pal[i]);
             signal_c_h[i]->SetLineColor(pal[i]);
