@@ -377,7 +377,7 @@ void Characterisation ( TH2D *h_smeared, TNtuple *info ){
     vector< TH1D* > signal_h;
     
     TCanvas *c_Tmu         = new TCanvas ( "c_Tmu", "", 800, 600 );
-    TLegend *leg_T         = new TLegend( 0.12, 0.70, 0.28, 0.88 );
+    TLegend *leg_T         = new TLegend( 0.12, 0.70, 0.28, 0.88, "Mode before FSI" );
 
     TH1D *h_Tmu_muccqe     = new TH1D ( "h_Tmu_muccqe",     "", x_bins, -1, 1 );
     TH1D *h_Tmu_muccmec    = new TH1D ( "h_Tmu_muccmec",    "", x_bins, -1, 1 );
@@ -580,7 +580,7 @@ void Characterisation ( TH2D *h_smeared, TNtuple *info ){
     
     TCanvas *c_cosmu = new TCanvas ( "c_cosmu", "", 800, 600 );
     
-    TLegend *leg_cos = new TLegend( 0.72, 0.70, 0.88, 0.88 );
+    TLegend *leg_cos = new TLegend( 0.72, 0.70, 0.88, 0.88, "Mode before FSI" );
  
     TH1D *h_cosmu_muccqe     = new TH1D ( "h_cosmu_muccqe",     "", y_bins, 0, 2 );
     TH1D *h_cosmu_muccmec    = new TH1D ( "h_cosmu_muccmec",    "", y_bins, 0, 2 );
